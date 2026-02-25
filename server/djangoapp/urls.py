@@ -1,18 +1,22 @@
-# Uncomment the imports before you add the code
-# from django.urls import path
+from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-# from . import views
+from django.views.generic import TemplateView
+from . import views
 
 app_name = 'djangoapp'
+
 urlpatterns = [
-    # # path for registration
+    # Render React login page
+    path('login/', TemplateView.as_view(template_name="index.html")),
 
-    # path for login
-    # path(route='login', view=views.login_user, name='login'),
+    # Login API
+    path('loginuser/', views.login_user, name='login'),
 
-    # path for dealer reviews view
+    # Logout API
+    path('logout/', views.logout_request, name='logout'),
 
-    # path for add a review view
+    # Register API
+    path('register/', views.registration, name='register'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
