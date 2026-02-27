@@ -124,3 +124,16 @@ def get_cars(request):
     for car_model in car_models:
         cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
     return JsonResponse({"CarModels":cars})
+
+
+# djangoapp/views.py
+import requests
+
+def get_dealer_reviews(request, dealer_id):
+    # This calls the actual Node.js microservice running on port 3030
+    endpoint = f"http://localhost:3030/fetchReviews/dealer/{dealer_id}"
+    try:
+        response = requests.get(endpoint)
+        return JsonResponse(response.json(), safe=False)
+    except Exception as e:
+        return JsonResponse({"message": "Could not connect to review service"}, status=500)
