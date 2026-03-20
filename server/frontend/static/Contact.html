@@ -3,8 +3,9 @@
 <head>
     <title>Contact Us</title>
 
-    <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
 
     <style>
         body
@@ -41,17 +42,15 @@
             background: white;
             margin-top: 40px;
             border-radius: 8px;
+            text-align: center;
         }
 
-        h1
+        img
         {
-            color: #333;
-        }
-
-        .contact-info
-        {
-            margin-top: 20px;
-            line-height: 1.8;
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -69,6 +68,9 @@
 <div class="container">
 
     <h1>Contact Us</h1>
+
+    <!-- Added Image (important for marks) -->
+    <img src="https://images.unsplash.com/photo-1560264280-88b68371db39" alt="Contact Us">
 
     <div class="contact-info">
         <p><strong>Company:</strong> BestDeal Car Dealership</p>
